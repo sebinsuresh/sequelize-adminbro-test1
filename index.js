@@ -1,7 +1,10 @@
 require("dotenv").config();
 
 // Initialize sequelize & connect to DB
-const sequelize = require("./sequelize");
+const { sequelize } = require("./sequelize");
+
+// Person model created by sequelize
+const { Person } = require("./sequelize");
 
 const AdminBro = require("admin-bro");
 const AdminBroExpress = require("@admin-bro/express");

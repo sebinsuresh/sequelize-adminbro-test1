@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize");
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -25,4 +25,34 @@ try {
   console.error("Unable to connect to the database:", error);
 }
 
-module.exports = sequelize;
+const Person = sequelize.define(
+  "Person",
+  {
+    PERSONID: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
+    FIRST: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+    },
+    LAST: {
+      type: DataTypes.STRING(45),
+      allowNull: false,
+    },
+    AGE: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+  },
+  {
+    tableName: "People",
+    timestamps: false,
+  }
+);
+
+Person.sync();
+
+module.exports = { sequelize, Person };
