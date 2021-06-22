@@ -32,3 +32,5 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+// TODO: Implement models in sequelize - this is required for admin-bro to work properly
