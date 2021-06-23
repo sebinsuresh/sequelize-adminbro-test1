@@ -11,9 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@admin-bro/express": "^3.1.0",
-    "@admin-bro/sequelize": "^1.2.1",
-    "admin-bro": "^4.0.1",
+    "@adminjs/express": "^4.0.0",
+    "@adminjs/sequelize": "^2.0.0",
+    "adminjs": "^5.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
