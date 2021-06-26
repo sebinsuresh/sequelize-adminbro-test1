@@ -21,6 +21,10 @@ const adminJS = new AdminJS({
   databases: [sequelize],
   rootPath: "/admin",
   loginPath: "/admin/login",
+  branding: {
+    companyName: "New Company Name C.O.",
+    logo: "http://racheltrana.com/images/neiu_logo.png",
+  },
 });
 
 const router = AdminJSExpress.buildRouter(adminJS);
