@@ -29,6 +29,8 @@ const adminJS = new AdminJS({
     {
       resource: Person,
       options: {
+        // By default it goes under the database name ("localhost")
+        // https://softwarebrothers.github.io/adminjs-dev/ResourceOptions.html#navigation
         navigation: {
           name: null,
           icon: "Bee",
