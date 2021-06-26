@@ -52,6 +52,11 @@ const adminJS = new AdminJS({
       labels: {
         People: "'People' table entries",
       },
+      properties: {
+        FIRST: "First name",
+        LAST: "Last name",
+        AGE: "Age",
+      },
     },
   },
 });
