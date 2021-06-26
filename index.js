@@ -47,6 +47,13 @@ const adminJS = new AdminJS({
       },
     },
   ],
+  locale: {
+    translations: {
+      labels: {
+        People: "'People' table entries",
+      },
+    },
+  },
 });
 
 const router = AdminJSExpress.buildRouter(adminJS);
