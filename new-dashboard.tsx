@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 import {
   Box,
   H2,
@@ -9,16 +9,16 @@ import {
   Illustration,
   IllustrationProps,
   Button,
-} from '@adminjs/design-system'
+} from "@adminjs/design-system";
 
-import { useTranslation } from 'adminjs/src/frontend/hooks'
+import { useTranslation } from "adminjs/src/frontend/hooks";
 
-const pageHeaderHeight = 284
-const pageHeaderPaddingY = 74
-const pageHeaderPaddingX = 250
+const pageHeaderHeight = 284;
+const pageHeaderPaddingY = 74;
+const pageHeaderPaddingX = 250;
 
 export const DashboardHeader: React.FC = () => {
-  const { translateMessage } = useTranslation()
+  const { translateMessage } = useTranslation();
   return (
     <Box position="relative" overflow="hidden">
       <Box
@@ -43,40 +43,44 @@ export const DashboardHeader: React.FC = () => {
         bg="grey100"
         height={pageHeaderHeight}
         py={pageHeaderPaddingY}
-        px={['default', 'lg', pageHeaderPaddingX]}
+        px={["default", "lg", pageHeaderPaddingX]}
       >
         <Text textAlign="center" color="white">
           <H2>Hello there!</H2>
           <Text opacity={0.8}>
-            You can modify the tables from your database by going to the sidebar - sebin
+            You can modify the tables from your database by going to the sidebar
+            - sebin
           </Text>
         </Text>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
 type BoxType = {
   variant: string;
   title: string;
   subtitle: string;
   href: string;
-}
+};
 
-const boxes = ({ translateMessage }): Array<BoxType> => [{
-  variant: 'Planet',
-  title: translateMessage('addingResources_title'),
-  subtitle: translateMessage('addingResources_subtitle'),
-  href: '/admin/resources/People',
-}, {
-  variant: 'DocumentCheck',
-  title: translateMessage('customizeResources_title'),
-  subtitle: translateMessage('customizeResources_subtitle'),
-  href: 'https://adminjs.co/tutorial-customizing-resources.html',
-},]
+const boxes = ({ translateMessage }): Array<BoxType> => [
+  {
+    variant: "Planet",
+    title: translateMessage("addingResources_title"),
+    subtitle: translateMessage("addingResources_subtitle"),
+    href: "/admin/resources/People",
+  },
+  {
+    variant: "DocumentCheck",
+    title: translateMessage("customizeResources_title"),
+    subtitle: translateMessage("customizeResources_subtitle"),
+    href: "https://adminjs.co/tutorial-customizing-resources.html",
+  },
+];
 
 const Card = styled(Box)`
-  display: ${({ flex }): string => (flex ? 'flex' : 'block')};
+  display: ${({ flex }): string => (flex ? "flex" : "block")};
   color: ${({ theme }): string => theme.colors.grey100};
   text-decoration: none;
   border: 1px solid transparent;
@@ -84,23 +88,23 @@ const Card = styled(Box)`
     border: 1px solid ${({ theme }): string => theme.colors.primary100};
     box-shadow: ${({ theme }): string => theme.shadows.cardHover};
   }
-`
+`;
 
 Card.defaultProps = {
-  variant: 'white',
-  boxShadow: 'card',
-}
+  variant: "white",
+  boxShadow: "card",
+};
 
 export const Dashboard: React.FC = () => {
-  const { translateMessage, translateButton } = useTranslation()
+  const { translateMessage, translateButton } = useTranslation();
   return (
     <Box>
       <DashboardHeader />
       <Box
-        mt={['xl', 'xl', '-100px']}
+        mt={["xl", "xl", "-100px"]}
         mb="xl"
-        mx={[0, 0, 0, 'auto']}
-        px={['default', 'lg', 'xxl', '0']}
+        mx={[0, 0, 0, "auto"]}
+        px={["default", "lg", "xxl", "0"]}
         position="relative"
         flex
         flexDirection="row"
@@ -113,7 +117,7 @@ export const Dashboard: React.FC = () => {
             <Card as="a" href={box.href}>
               <Text textAlign="center">
                 <Illustration
-                  variant={box.variant as IllustrationProps['variant']}
+                  variant={box.variant as IllustrationProps["variant"]}
                   width={100}
                   height={70}
                 />
@@ -124,17 +128,23 @@ export const Dashboard: React.FC = () => {
           </Box>
         ))}
         <Box width={[1, 1, 1 / 2]} p="lg">
-          <Card as="a" flex href="https://join.slack.com/t/adminbro/shared_invite/zt-djsqxxpz-_YCS8UMtQ9Ade6DPuLR7Zw">
-            <Box flexShrink={0}><Illustration variant="SlackLogo" /></Box>
+          <Card
+            as="a"
+            flex
+            href="https://join.slack.com/t/adminbro/shared_invite/zt-djsqxxpz-_YCS8UMtQ9Ade6DPuLR7Zw"
+          >
+            <Box flexShrink={0}>
+              <Illustration variant="SlackLogo" />
+            </Box>
             <Box ml="xl">
-              <H4>{translateMessage('community_title')}</H4>
-              <Text>{translateMessage('community_subtitle')}</Text>
+              <H4>{translateMessage("community_title")}</H4>
+              <Text>{translateMessage("community_subtitle")}</Text>
             </Box>
           </Card>
         </Box>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
