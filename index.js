@@ -59,6 +59,9 @@ const adminJS = new AdminJS({
       },
     },
   },
+  dashboard: {
+    component: AdminJS.bundle("new-dashboard"),
+  },
 });
 
 const router = AdminJSExpress.buildRouter(adminJS);
