@@ -13,6 +13,8 @@ import {
 
 import { useTranslation } from "adminjs/src/frontend/hooks";
 
+import { useHistory, useLocation } from "react-router";
+
 const pageHeaderHeight = 284;
 const pageHeaderPaddingY = 74;
 const pageHeaderPaddingX = 250;
@@ -67,15 +69,9 @@ type BoxType = {
 const boxes = ({ translateMessage }): Array<BoxType> => [
   {
     variant: "Planet",
-    title: translateMessage("addingResources_title"),
-    subtitle: translateMessage("addingResources_subtitle"),
+    title: translateMessage("Add to the People table"),
+    subtitle: translateMessage("- Sebin"),
     href: "/admin/resources/People",
-  },
-  {
-    variant: "DocumentCheck",
-    title: translateMessage("customizeResources_title"),
-    subtitle: translateMessage("customizeResources_subtitle"),
-    href: "https://adminjs.co/tutorial-customizing-resources.html",
   },
 ];
 
@@ -97,6 +93,7 @@ Card.defaultProps = {
 
 export const Dashboard: React.FC = () => {
   const { translateMessage, translateButton } = useTranslation();
+  const history = useHistory();
   return (
     <Box>
       <DashboardHeader />
@@ -114,7 +111,17 @@ export const Dashboard: React.FC = () => {
         {boxes({ translateMessage }).map((box, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <Box key={index} width={[1, 1 / 2, 1 / 2, 1 / 3]} p="lg">
-            <Card as="a" href={box.href}>
+            <Card
+              href="/admin/resources/People"
+              onClick={(event, element): void => {
+                event.preventDefault();
+                if (element?.href) {
+                  history.push(element.href);
+                } else {
+                  history.push(box.href);
+                }
+              }}
+            >
               <Text textAlign="center">
                 <Illustration
                   variant={box.variant as IllustrationProps["variant"]}
