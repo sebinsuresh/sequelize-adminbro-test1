@@ -112,6 +112,7 @@ export const Dashboard: React.FC = () => {
           // eslint-disable-next-line react/no-array-index-key
           <Box key={index} width={[1, 1 / 2, 1 / 2, 1 / 3]} p="lg">
             <Card
+              as="a"
               href="/admin/resources/People"
               onClick={(event, element): void => {
                 event.preventDefault();
@@ -135,17 +136,13 @@ export const Dashboard: React.FC = () => {
           </Box>
         ))}
         <Box width={[1, 1, 1 / 2]} p="lg">
-          <Card
-            as="a"
-            flex
-            href="https://join.slack.com/t/adminbro/shared_invite/zt-djsqxxpz-_YCS8UMtQ9Ade6DPuLR7Zw"
-          >
+          <Card as="a" flex href="/">
             <Box flexShrink={0}>
-              <Illustration variant="SlackLogo" />
+              <Illustration variant="Astronaut" />
             </Box>
             <Box ml="xl">
-              <H4>{translateMessage("community_title")}</H4>
-              <Text>{translateMessage("community_subtitle")}</Text>
+              <H4>{translateMessage("Go back home")}</H4>
+              <Text>{translateMessage("Log out and go back?")}</Text>
             </Box>
           </Card>
         </Box>
