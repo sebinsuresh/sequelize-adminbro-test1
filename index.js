@@ -20,6 +20,7 @@ const app = express();
 const adminJS = new AdminJS({
   databases: [sequelize],
   rootPath: "/admin",
+  loginPath: "/admin/login",
 });
 
 const router = AdminJSExpress.buildRouter(adminJS);
@@ -29,6 +30,10 @@ app.use(adminJS.options.rootPath, router);
 
 app.get("/", (req, res) => {
   res.send("Hello");
+});
+
+app.get("/admin/login", (req, res) => {
+  res.send("Not implemented yet!");
 });
 
 const port = 3000;
