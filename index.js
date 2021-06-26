@@ -25,6 +25,17 @@ const adminJS = new AdminJS({
     companyName: "New Company Name C.O.",
     logo: "http://racheltrana.com/images/neiu_logo.png",
   },
+  resources: [
+    {
+      resource: Person,
+      options: {
+        navigation: {
+          name: null,
+          icon: "Bee",
+        },
+      },
+    },
+  ],
 });
 
 const router = AdminJSExpress.buildRouter(adminJS);
