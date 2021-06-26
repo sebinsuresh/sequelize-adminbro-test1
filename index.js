@@ -35,6 +35,15 @@ const adminJS = new AdminJS({
           name: null,
           icon: "Bee",
         },
+        // Specify the order when fields are shown in list
+        listProperties: ["PERSONID", "FIRST", "LAST", "AGE"],
+
+        // Specify which field is the title (shown when the screen size is small)
+        properties: {
+          FIRST: {
+            isTitle: true,
+          },
+        },
       },
     },
   ],
