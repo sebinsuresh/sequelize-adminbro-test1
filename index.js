@@ -10,6 +10,8 @@ const AdminJS = require("adminjs");
 const AdminJSExpress = require("@adminjs/express");
 const AdminJSSequelize = require("@adminjs/sequelize");
 
+const bcrypt = require("bcrypt");
+
 //  Register database adapter for Sequelize
 AdminJS.registerAdapter(AdminJSSequelize);
 
@@ -78,7 +80,7 @@ app.get("/admin/login", (req, res) => {
 });
 
 const port = 3000;
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`Listening on port ${port}`);
 });
 
