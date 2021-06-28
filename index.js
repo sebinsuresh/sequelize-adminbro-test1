@@ -84,10 +84,6 @@ app.get("/", (req, res) => {
   res.send("Hello");
 });
 
-app.get("/admin/login", (req, res) => {
-  res.send("Not implemented yet!");
-});
-
 const port = 3000;
 app.listen(port, async () => {
   console.log(`Listening on port ${port}`);
