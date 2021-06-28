@@ -66,7 +66,16 @@ const adminJS = new AdminJS({
   },
 });
 
-const router = AdminJSExpress.buildRouter(adminJS);
+const router = AdminJSExpress.buildAuthenticatedRouter(adminJS, {
+  authenticate: async (email, password) => {
+    if (email === process.env.ADMINJS_USER) {
+      const pwMatch = bcrypt.compare(password, process.env.ADMINJS_PASS);
+      return pwMatch;
+    }
+    return false;
+  },
+  cookiePassword: process.env.ADMINJS_COOKIE_PASS,
+});
 
 // Set admin-js router as a middleware in express
 app.use(adminJS.options.rootPath, router);
