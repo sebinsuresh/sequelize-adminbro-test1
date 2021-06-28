@@ -73,12 +73,6 @@ const boxes = ({ translateMessage }): Array<BoxType> => [
     subtitle: translateMessage("- Sebin"),
     href: "/admin/resources/People",
   },
-  {
-    variant: "Astronaut",
-    title: translateMessage("Logout"),
-    subtitle: translateMessage("Sign out of this admin session"),
-    href: "/admin/logout",
-  },
 ];
 
 const Card = styled(Box)`
@@ -119,7 +113,7 @@ export const Dashboard: React.FC = () => {
           <Box key={index} width={[1, 1 / 2, 1 / 2, 1 / 3]} p="lg">
             <Card
               as="a"
-              href="/admin/resources/People"
+              href={box.href}
               onClick={(event, element): void => {
                 event.preventDefault();
                 if (element?.href) {
@@ -141,6 +135,17 @@ export const Dashboard: React.FC = () => {
             </Card>
           </Box>
         ))}
+        <Box width={[1, 1, 1 / 2]} p="lg">
+          <Card as="a" flex href="/admin/logout">
+            <Box flexShrink={0}>
+              <Illustration variant="Astronaut" />
+            </Box>
+            <Box ml="xl">
+              <H4>{translateMessage("Go back home")}</H4>
+              <Text>{translateMessage("Log out and go back?")}</Text>
+            </Box>
+          </Card>
+        </Box>
       </Box>
     </Box>
   );
