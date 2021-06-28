@@ -15,3 +15,14 @@ readline.question(
     process.exit(0);
   }
 );
+
+/* // Hide the password being entered
+const showEntered = false;
+
+readline._writeToOutput = function _writeToOutput(stringToWrite) {
+  if (showEntered) {
+    readline.output.write(stringToWrite);
+  } else {
+    readline.output.write("*");
+  }
+}; */
