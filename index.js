@@ -66,16 +66,24 @@ const adminJS = new AdminJS({
   },
 });
 
-const router = AdminJSExpress.buildAuthenticatedRouter(adminJS, {
-  authenticate: async (email, password) => {
-    if (email === process.env.ADMINJS_USER) {
-      const pwMatch = bcrypt.compare(password, process.env.ADMINJS_PASS);
-      return pwMatch;
-    }
-    return false;
+const router = AdminJSExpress.buildAuthenticatedRouter(
+  adminJS,
+  {
+    authenticate: async (email, password) => {
+      if (email === process.env.ADMINJS_USER) {
+        const pwMatch = bcrypt.compare(password, process.env.ADMINJS_PASS);
+        return pwMatch;
+      }
+      return false;
+    },
+    cookiePassword: process.env.ADMINJS_COOKIE_PASS,
   },
-  cookiePassword: process.env.ADMINJS_COOKIE_PASS,
-});
+  undefined, //predefinedRouter
+  {
+    resave: true,
+    saveUninitialized: true,
+  } //sessionOptions
+);
 
 // Set admin-js router as a middleware in express
 app.use(adminJS.options.rootPath, router);
@@ -84,7 +92,7 @@ app.get("/", (req, res) => {
   res.send("Hello");
 });
 
-const port = 3000;
+const port = 4000;
 app.listen(port, async () => {
   console.log(`Listening on port ${port}`);
 });
