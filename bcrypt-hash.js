@@ -10,7 +10,8 @@ const readline = require("readline").createInterface({
 // Async function to hash given plaintext
 const getHash = async (plain) => {
   const hashed = await bcrypt.hash(plain, saltRounds);
-  return hashed;
+  const hashedEscaped = hashed.split("$").join("\\$");
+  return hashed + "\nEscaped:\n" + hashedEscaped;
 };
 
 if (process.argv.length > 2) {
